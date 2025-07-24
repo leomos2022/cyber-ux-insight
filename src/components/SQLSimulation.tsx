@@ -14,7 +14,7 @@ const SQLSimulation = () => {
     formData.append("username", username);
     formData.append("password", password);
     try {
-      const response = await fetch("http://localhost/cyberux/cyberux-backend/login.php", {
+      const response = await fetch("http://localhost/cyberux-backend/login2.php", {
         method: "POST",
         body: formData,
       });
