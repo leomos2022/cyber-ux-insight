@@ -88,4 +88,5 @@ Observa el resultado tras cada intento y reflexiona sobre cómo la inyección SQ
 ## Créditos
 - **Desarrollado para:** NRC-4922-Seguridad en el Desarrollo de Software
 - **Institución:** Corporación Universitaria Uniminuto de Dios
-- **Autor:** [Tu Nombre Aquí]
+- **Autor:** [Leonardo Mosquera Rodriguez, Jessica Silva]
+# cyber-ux-insight
