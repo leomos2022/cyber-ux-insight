@@ -1,73 +1,91 @@
+# Cyber UX Insight
 
+**Asignatura:** NRC-4922-Seguridad en el Desarrollo de Software  
+**Universidad:** Corporación Universitaria Uniminuto de Dios
 
-## Project info
+---
 
-**URL**: https://lovable.dev/projects/b0ee9cf5-e76b-463b-90f4-17c33e0f4f96
+## Descripción
 
-## How can I edit this code?
+Este proyecto es un estudio de caso interactivo sobre **UX y Seguridad en Aplicaciones Web**, enfocado en la demostración y análisis de vulnerabilidades de inyección SQL. Permite a los estudiantes experimentar de forma práctica cómo una mala implementación de autenticación puede ser explotada y cómo mitigar estos riesgos.
 
-There are several ways of editing your application.
+---
 
-**Use Lovable**
+## Objetivos de la Actividad
+- Comprender el impacto de la inyección SQL en aplicaciones web.
+- Identificar malas prácticas de desarrollo inseguro.
+- Experimentar con ataques reales en un entorno controlado.
+- Reflexionar sobre la importancia de la validación y el uso de buenas prácticas de seguridad.
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/b0ee9cf5-e76b-463b-90f4-17c33e0f4f96) and start prompting.
+---
 
-Changes made via Lovable will be committed automatically to this repo.
+## Estructura del Proyecto
+- **Frontend:** React + Vite (interfaz educativa y práctica)
+- **Backend:** PHP (login vulnerable a inyección SQL)
+- **Base de datos:** MySQL (usuarios de prueba)
 
-**Use your preferred IDE**
+---
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+## Instrucciones de Uso
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+### 1. Requisitos
+- XAMPP (o stack LAMP/WAMP similar)
+- Node.js y npm
 
-Follow these steps:
+### 2. Instalación
+1. Clona este repositorio:
+   ```sh
+   git clone https://github.com/leomos2022/cyber-ux-insight.git
+   ```
+2. Coloca la carpeta `cyberux-backend` en el directorio `htdocs` de XAMPP.
+3. Instala dependencias del frontend:
+   ```sh
+   cd cyberux
+   npm install
+   ```
+4. Inicia el frontend:
+   ```sh
+   npm run dev
+   ```
+5. Asegúrate de que Apache y MySQL estén activos en XAMPP.
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
-
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
+### 3. Configuración de la Base de Datos
+Ejecuta en phpMyAdmin o consola MySQL:
+```sql
+CREATE DATABASE IF NOT EXISTS cyberux;
+USE cyberux;
+CREATE TABLE IF NOT EXISTS users (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    username VARCHAR(50) NOT NULL,
+    password VARCHAR(50) NOT NULL
+);
+INSERT INTO users (username, password) VALUES ('admin', 'admin123'), ('test', 'test123');
 ```
 
-**Edit a file directly in GitHub**
+---
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+## Práctica de Inyección SQL
 
-**Use GitHub Codespaces**
+En la sección de simulación de ataque SQL, encontrarás un formulario vulnerable. Prueba los siguientes payloads:
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+- **Bypass de autenticación:**
+  - Usuario: `' OR '1'='1`
+  - Contraseña: cualquier cosa
+- **Obtener todos los usuarios:**
+  - Usuario: `admin' OR 1=1 -- `
+  - Contraseña: cualquier cosa
+- **Prueba de error:**
+  - Usuario: `admin' OR 'a'='a`
+  - Contraseña: cualquier cosa
+- **Otra variante:**
+  - Usuario: `admin' #`
+  - Contraseña: cualquier cosa
 
-## What technologies are used for this project?
+Observa el resultado tras cada intento y reflexiona sobre cómo la inyección SQL puede comprometer la seguridad de una aplicación web.
 
-This project is built with:
+---
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
-
-## How can I deploy this project?
-
-Simply open [Lovable](https://lovable.dev/projects/b0ee9cf5-e76b-463b-90f4-17c33e0f4f96) and click on Share -> Publish.
-
-## Can I connect a custom domain to my Lovable project?
-
-Yes, you can!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+## Créditos
+- **Desarrollado para:** NRC-4922-Seguridad en el Desarrollo de Software
+- **Institución:** Corporación Universitaria Uniminuto de Dios
+- **Autor:** [Tu Nombre Aquí]
