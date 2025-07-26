@@ -6,7 +6,7 @@ export const BACKEND_URL = import.meta.env.VITE_BACKEND_URL ||
   );
 
 export const API_ENDPOINTS = {
-  LOGIN_VULNERABLE: `${BACKEND_URL}/login2.php`,
+  LOGIN_VULNERABLE: `${BACKEND_URL}/login`,
   LOGIN_SECURE: `${BACKEND_URL}/hashseguro.php`,
   TEST: `${BACKEND_URL}/test.php`
 }; 
