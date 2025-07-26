@@ -1,0 +1,49 @@
+-- Script completo para inicializar la base de datos Cyber UX
+-- Ejecutar en Railway MySQL Console
+
+-- Crear base de datos si no existe
+CREATE DATABASE IF NOT EXISTS cyberux;
+USE cyberux;
+
+-- Crear tabla de usuarios vulnerable para fines educativos
+CREATE TABLE IF NOT EXISTS users (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    username VARCHAR(50) NOT NULL UNIQUE,
+    password VARCHAR(50) NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    INDEX idx_username (username)
+);
+
+-- Insertar usuarios de prueba
+INSERT INTO users (username, password) VALUES 
+('admin', 'admin123'),
+('test', 'test123'),
+('usuario1', 'pass123'),
+('usuario2', 'mypass')
+ON DUPLICATE KEY UPDATE password = VALUES(password);
+
+-- Crear tabla para logs de intentos fallidos (para la versión segura)
+CREATE TABLE IF NOT EXISTS login_attempts (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    username VARCHAR(50) NOT NULL,
+    ip_address VARCHAR(45) NOT NULL,
+    attempt_time TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    success BOOLEAN DEFAULT FALSE,
+    INDEX idx_username_time (username, attempt_time)
+);
+
+-- Crear tabla para sesiones seguras
+CREATE TABLE IF NOT EXISTS sessions (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    session_id VARCHAR(255) NOT NULL UNIQUE,
+    user_id INT NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    expires_at TIMESTAMP NOT NULL,
+    INDEX idx_session_id (session_id),
+    INDEX idx_user_id (user_id),
+    FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
+);
+
+-- Verificar que las tablas se crearon correctamente
+SHOW TABLES;
+SELECT COUNT(*) as total_users FROM users; 

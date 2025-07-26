@@ -6,8 +6,9 @@ error_reporting(E_ALL);
 header("Access-Control-Allow-Origin: *");
 header("Access-Control-Allow-Headers: *");
 
-require_once 'config.php';
-$conn = getConnection();
+// Usar configuración de nube temporalmente
+require_once 'config-cloud.php';
+$conn = getCloudConnection();
 
 if (isset($_POST['username']) && isset($_POST['password'])) {
     $username = $_POST['username'];
