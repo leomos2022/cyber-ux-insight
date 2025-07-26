@@ -6,16 +6,8 @@ error_reporting(E_ALL);
 header("Access-Control-Allow-Origin: *");
 header("Access-Control-Allow-Headers: *");
 
-$host = "localhost";
-$user = "root";
-$pass = "";
-$db   = "cyberux";
-
-$conn = new mysqli($host, $user, $pass, $db);
-
-if ($conn->connect_error) {
-    die("Conexión fallida: " . $conn->connect_error);
-}
+require_once 'config.php';
+$conn = getConnection();
 
 if (isset($_POST['username']) && isset($_POST['password'])) {
     $username = $_POST['username'];

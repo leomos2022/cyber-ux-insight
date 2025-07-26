@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Terminal, Database, MonitorSpeaker, Code, AlertCircle } from "lucide-react";
+import { API_ENDPOINTS } from "@/lib/config";
 
 const SQLSimulation = () => {
   const [username, setUsername] = useState("");
@@ -14,7 +15,7 @@ const SQLSimulation = () => {
     formData.append("username", username);
     formData.append("password", password);
     try {
-      const response = await fetch("http://localhost/cyberux-backend/login2.php", {
+      const response = await fetch(API_ENDPOINTS.LOGIN_VULNERABLE, {
         method: "POST",
         body: formData,
       });
