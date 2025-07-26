@@ -1,0 +1,15 @@
+services:
+  - type: web
+    name: cyberux-backend
+    env: php
+    buildCommand: composer install
+    startCommand: php -S 0.0.0.0:$PORT -t .
+    envVars:
+      - key: DB_HOST
+        value: sql305.infinityfree.com
+      - key: DB_USER
+        value: if0_39546553
+      - key: DB_PASS
+        value: fwhB0S7BkA
+      - key: DB_NAME
+        value: if0_39546553_cyberux 
