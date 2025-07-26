@@ -2,7 +2,7 @@
 export const BACKEND_URL = import.meta.env.VITE_BACKEND_URL || 
   (import.meta.env.DEV 
     ? "http://localhost:8000" 
-    : "https://cyber-ux-insight-production.up.railway.app"
+    : "https://cyber-ux-insight.vercel.app/api"
   );
 
 export const API_ENDPOINTS = {

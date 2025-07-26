@@ -11,16 +11,19 @@ const SQLSimulation = () => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    const formData = new FormData();
-    formData.append("username", username);
-    formData.append("password", password);
     try {
       const response = await fetch(API_ENDPOINTS.LOGIN_VULNERABLE, {
         method: "POST",
-        body: formData,
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          username,
+          password
+        }),
       });
-      const text = await response.text();
-      setMessage(text);
+      const data = await response.json();
+      setMessage(data.message || data.status);
     } catch (error) {
       setMessage("Error de conexión con el backend");
     }
