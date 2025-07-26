@@ -3,7 +3,7 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "homepage": "https://leomos2022.github.io/cyber-ux-insight",
+  "homepage": "https://cyberux-gz9phjku0-leonardos-projects-8e154d2f.vercel.app",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
