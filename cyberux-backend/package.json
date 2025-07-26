@@ -1,0 +1,22 @@
+{
+  "name": "cyberux-backend",
+  "version": "1.0.0",
+  "description": "Backend vulnerable para estudio de seguridad",
+  "main": "index.php",
+  "scripts": {
+    "start": "php -S 0.0.0.0:$PORT -t .",
+    "build": "composer install"
+  },
+  "engines": {
+    "php": "8.0"
+  },
+  "dependencies": {},
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/leomos2022/cyber-ux-insight.git"
+  },
+  "keywords": ["php", "security", "sql-injection"],
+  "author": "Leonardo Mosquera",
+  "license": "MIT"
+} 
