@@ -6,9 +6,9 @@ error_reporting(E_ALL);
 header("Access-Control-Allow-Origin: *");
 header("Access-Control-Allow-Headers: *");
 
-// Usar configuración de nube temporalmente
-require_once 'config-cloud.php';
-$conn = getCloudConnection();
+// Usar configuración de Railway para producción
+require_once 'config-railway.php';
+$conn = getRailwayConnection();
 
 if (isset($_POST['username']) && isset($_POST['password'])) {
     $username = $_POST['username'];
