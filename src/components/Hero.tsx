@@ -74,24 +74,25 @@ const Hero = () => {
           <h3 className="text-lg font-semibold text-primary-foreground mb-4">
             Conectarse al Proyecto
           </h3>
-          <div className="grid md:grid-cols-2 gap-4 text-left">
-            <div className="flex items-center space-x-3">
+          <div className="text-center">
+            <div className="flex items-center justify-center space-x-3 mb-4">
               <Terminal className="w-6 h-6 text-accent" />
               <div>
-                <p className="font-medium text-primary-foreground">Desde Terminal:</p>
+                <p className="font-medium text-primary-foreground">Clonar Repositorio:</p>
                 <code className="text-sm text-primary-foreground/80 bg-primary-foreground/20 px-2 py-1 rounded">
-                  git clone [url-del-repositorio]
+                  git clone https://github.com/leomos2022/cyber-ux-insight.git
                 </code>
               </div>
             </div>
-            <div className="flex items-center space-x-3">
-              <Code className="w-6 h-6 text-accent" />
-              <div>
-                <p className="font-medium text-primary-foreground">Desde VS Code:</p>
-                <p className="text-sm text-primary-foreground/80">
-                  File → Open Folder → Seleccionar proyecto
-                </p>
-              </div>
+            <div className="text-center">
+              <Button 
+                onClick={() => window.open('https://github.com/leomos2022/cyber-ux-insight.git', '_blank')}
+                variant="outline"
+                className="border-accent text-accent hover:bg-accent hover:text-accent-foreground px-6 py-2 text-sm font-semibold rounded-lg transition-all duration-300 hover:scale-105"
+              >
+                <ExternalLink className="w-4 h-4 mr-2" />
+                Ver Repositorio en GitHub
+              </Button>
             </div>
           </div>
         </div>
