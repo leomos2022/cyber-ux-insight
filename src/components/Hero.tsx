@@ -1,9 +1,14 @@
 import { Button } from "@/components/ui/button";
+import { ExternalLink, Terminal, Code } from "lucide-react";
 import cyberHero from "@/assets/cyber-hero.jpg";
 
 const Hero = () => {
   const scrollToStudy = () => {
     document.getElementById('introduction')?.scrollIntoView({ behavior: 'smooth' });
+  };
+
+  const openYouTubeVideo = () => {
+    window.open('https://www.youtube.com/watch?v=n9xNolex8oA&t=122s', '_blank');
   };
 
   return (
@@ -17,23 +22,79 @@ const Hero = () => {
       </div>
       
       {/* Content */}
-      <div className="relative z-10 text-center px-4 max-w-4xl mx-auto">
+      <div className="relative z-10 text-center px-4 max-w-6xl mx-auto">
         <h1 className="text-4xl md:text-6xl font-bold text-primary-foreground mb-6 leading-tight">
-          Estudio de Caso: UX y Seguridad en 
-          <span className="block text-accent"> Aplicaciones Web</span>
+          Seguridad en la Web
+          <span className="block text-accent"> Estudio de Caso Completo</span>
         </h1>
         
         <p className="text-xl md:text-2xl text-primary-foreground/90 mb-8 leading-relaxed">
           Análisis de vulnerabilidades, simulación de ataque SQL y propuestas de mitigación
         </p>
-        
-        <Button 
-          onClick={scrollToStudy}
-          size="lg" 
-          className="bg-accent hover:bg-accent/90 text-accent-foreground px-8 py-4 text-lg font-semibold rounded-lg transition-all duration-300 hover:scale-105 shadow-lg"
-        >
-          Leer el estudio completo
-        </Button>
+
+        {/* Video de YouTube embebido */}
+        <div className="mb-8">
+          <div className="bg-black/20 backdrop-blur-sm rounded-xl p-4 inline-block">
+            <iframe
+              width="560"
+              height="315"
+              src="https://www.youtube.com/embed/n9xNolex8oA?start=122"
+              title="Tutorial de Seguridad Web"
+              frameBorder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+              className="rounded-lg shadow-2xl"
+            ></iframe>
+          </div>
+        </div>
+
+        {/* Botones de acción */}
+        <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
+          <Button 
+            onClick={scrollToStudy}
+            size="lg" 
+            className="bg-accent hover:bg-accent/90 text-accent-foreground px-8 py-4 text-lg font-semibold rounded-lg transition-all duration-300 hover:scale-105 shadow-lg"
+          >
+            Leer el estudio completo
+          </Button>
+          
+          <Button 
+            onClick={openYouTubeVideo}
+            size="lg" 
+            variant="outline"
+            className="border-accent text-accent hover:bg-accent hover:text-accent-foreground px-8 py-4 text-lg font-semibold rounded-lg transition-all duration-300 hover:scale-105 shadow-lg"
+          >
+            <ExternalLink className="w-5 h-5 mr-2" />
+            Abrir en YouTube
+          </Button>
+        </div>
+
+        {/* Información de conexión al proyecto */}
+        <div className="bg-primary-foreground/10 backdrop-blur-sm rounded-xl p-6">
+          <h3 className="text-lg font-semibold text-primary-foreground mb-4">
+            Conectarse al Proyecto
+          </h3>
+          <div className="grid md:grid-cols-2 gap-4 text-left">
+            <div className="flex items-center space-x-3">
+              <Terminal className="w-6 h-6 text-accent" />
+              <div>
+                <p className="font-medium text-primary-foreground">Desde Terminal:</p>
+                <code className="text-sm text-primary-foreground/80 bg-primary-foreground/20 px-2 py-1 rounded">
+                  git clone [url-del-repositorio]
+                </code>
+              </div>
+            </div>
+            <div className="flex items-center space-x-3">
+              <Code className="w-6 h-6 text-accent" />
+              <div>
+                <p className="font-medium text-primary-foreground">Desde VS Code:</p>
+                <p className="text-sm text-primary-foreground/80">
+                  File → Open Folder → Seleccionar proyecto
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
 
       {/* Scroll Indicator */}

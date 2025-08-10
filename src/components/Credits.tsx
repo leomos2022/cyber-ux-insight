@@ -163,6 +163,31 @@ const Credits = () => {
             </CardContent>
           </Card>
 
+          {/* Video Tutorial */}
+          <Card className="bg-gradient-to-r from-red-500/5 to-red-600/5 border-red-200/20 mb-8">
+            <CardHeader>
+              <CardTitle className="flex items-center space-x-2 text-center">
+                <ExternalLink className="w-6 h-6 text-red-600" />
+                <span className="text-foreground">Video Tutorial</span>
+              </CardTitle>
+            </CardHeader>
+            <CardContent className="text-center space-y-4">
+              <p className="text-muted-foreground">
+                Accede al video tutorial completo sobre este proyecto de seguridad web
+              </p>
+              <Button 
+                onClick={() => window.open('https://www.youtube.com/watch?v=n9xNolex8oA&t=122s', '_blank')}
+                className="bg-red-600 hover:bg-red-700 text-white px-8 py-3 text-lg font-semibold rounded-lg transition-all duration-300 hover:scale-105 shadow-lg"
+              >
+                <ExternalLink className="w-5 h-5 mr-2" />
+                Ver Video en YouTube
+              </Button>
+              <p className="text-sm text-muted-foreground">
+                Tutorial completo sobre la implementación y análisis de seguridad
+              </p>
+            </CardContent>
+          </Card>
+
           {/* Download Options */}
           <Card className="bg-gradient-to-r from-accent/5 to-primary/5">
             <CardHeader>
@@ -204,7 +229,7 @@ const Credits = () => {
               y nunca en sistemas de producción.
             </p>
             <p className="text-xs mt-2">
-              © 2024 Leonardo Mosquera. Todos los derechos reservados.
+              © Agosto 2025 Leonardo Mosquera. Todos los derechos reservados.
             </p>
           </div>
         </div>
