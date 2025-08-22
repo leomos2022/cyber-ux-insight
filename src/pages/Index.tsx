@@ -9,6 +9,7 @@ import MitigationTable from "@/components/MitigationTable";
 import FinalReport from "@/components/FinalReport";
 import PersonalReflection from "@/components/PersonalReflection";
 import Credits from "@/components/Credits";
+import VersionControlWorkshop from "@/components/VersionControlWorkshop";
 
 const Index = () => {
   return (
@@ -21,6 +22,7 @@ const Index = () => {
       <MitigationTable />
       <FinalReport />
       <PersonalReflection />
+      <VersionControlWorkshop />
       <Credits />
     </div>
   );

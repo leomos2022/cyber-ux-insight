@@ -176,7 +176,7 @@ const Credits = () => {
                 Accede al video tutorial completo sobre este proyecto de seguridad web
               </p>
               <Button 
-                onClick={() => window.open('https://www.youtube.com/watch?v=n9xNolex8oA&t=122s', '_blank')}
+                onClick={() => window.open('https://www.youtube.com/watch?v=3RjQznt-8kE&t=5s', '_blank')}
                 className="bg-red-600 hover:bg-red-700 text-white px-8 py-3 text-lg font-semibold rounded-lg transition-all duration-300 hover:scale-105 shadow-lg"
               >
                 <ExternalLink className="w-5 h-5 mr-2" />
